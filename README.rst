@@ -23,15 +23,14 @@ Goals
 
 * ``main.js`` boilderplate
 
-* Documented intructions to override and create views easily
+* Documented intructions for basic UI customization tasks
 
-* Documented intructions to override and create viewlets easily
-
-* Multilingual support
+* Multilingual support (i18n)
 
 This is a barebone code drop and does not depend on more or less
 crappy Python templating solutions. There is no need for using code generators,
-as actions like adding a view are simple code copy-pastes.
+as actions like adding a view are simple code copy-pastes following
+the sane defaults and Dont Repeat Yourself (DRY) principles.
 
 Prerequisites
 ---------------
