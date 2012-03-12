@@ -6,7 +6,9 @@
 
     * http://wiki.python.org/moin/Distutils/Tutorial
 
-    * http://packages.python.org/distribute/setuptools.html#developer-s-guide
+    * http://packages.python.org/distribute/setuptools.html#developer-s-
+
+    * http://plone.org/products/plone/roadmap/247
 
 """
 
@@ -18,7 +20,7 @@ setup(name = "yourtheme",
     author = "",
     author_email = "",
     url = "",
-    install_require = ["five.grok"],
+    install_requires = ["five.grok"],
     packages = ['yourtheme'],
     classifiers=[
         "Framework :: Plone",

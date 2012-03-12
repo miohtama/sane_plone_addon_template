@@ -15,3 +15,9 @@ from interfaces	import IThemeSpecific
 grok.templatedir("templates")
 grok.layer(IThemeSpecific)
 
+class HelloWorld(grok.View)
+	"""
+	Example view rendering a Plone page in the default Plone framing.
+	
+	Automatically associates itself with ``helloworld.pt`` templates.
+	"""
