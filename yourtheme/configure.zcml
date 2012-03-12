@@ -21,6 +21,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <cmf:registerDirectory name="skins" recursive="true"/>
+  <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
+
+  <!-- Declare mapping between portal_skins theme name and Zope 3 browser layers --> 
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="yourtheme"
+      />
 
 </configure>

@@ -8,8 +8,8 @@
 
 from five import grok
 
-from interfaces	import IThemeSpecific
+from interfaces	import IAddonSpecific, IThemeSpecific
 
-grok.templatedir("templates")
-grok.layer(IThemeSpecific)
+grok.templatedir("viewlet-templates")
+grok.layer(IAddonSpecific)
 

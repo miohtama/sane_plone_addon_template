@@ -1,0 +1,6 @@
+<layers>
+ <layer
+     name="yourtheme"
+     interface="yourtheme.interfaces.IAddonSpecific"
+     />
+</layers>

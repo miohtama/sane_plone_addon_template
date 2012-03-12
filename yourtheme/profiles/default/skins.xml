@@ -6,6 +6,8 @@
     meta_type="Filesystem Directory View"
     directory="yourtheme:skins/yourtheme"/>
 
+ <!-- Activate this if you want to your code to behave as theme -->
+ 
  <skin-path name="yourtheme" based-on="Sunburst Theme">
   <layer name="yourtheme"
      insert-before="custom"/>
