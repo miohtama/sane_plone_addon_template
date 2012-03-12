@@ -101,22 +101,24 @@ The folder layout follows Python package layout where you have
 
 * Top level folder with ``setup.py`` package metadata
 
-* ``yourtheme`` Python module
+* ``yourtheme`` Python module 
 
-* `Grok static folder <http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/resourcefolders.html#grok-static-media-folder>`_ for images, CSS and Javascript.
+* ``static`` `Grok static folder <http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/resourcefolders.html#grok-static-media-folder>`_ for images, CSS and Javascript.
 
 * ``views.py`` and ``viewlets.py`` for Plone user interface element declarations
 
-* Standard ``configure.zcml`` Zope 3 boiler-plate (no need to touch here)
-
-' ' 
+* Standard ``configure.zcml`` Zope 3 boiler-plate - no need to touch here
 
 Tasks
 ------
 
-How to 
+Here are quick pointers for common theming / Plone UI customization related development tasks. 
 
-* Automatic Plone restarts
+Automatic Plone restarts
+===========================
+
+Use `sauna.reload <http://pypi.python.org/pypi/sauna.reload>`_ on UNIX systems to reload your code automatically.
+This will considerably raise your working effectiveness.
 
 Add a view
 ============
@@ -125,44 +127,72 @@ A HelloWorld view example is provided in ``views.py``. Feel free to copy-paste a
 
 More info
 
-* 
+* http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
 
-* Override a view
+Override a view template
+===========================
 
-* Override an old style page template (skins overrides)
+z3c.jbot override.
 
-* Add a viewlet
+Override a view class
+===========================
 
-* Override a viewlet
+Same as the add view, but you simply use ``grok.name()``
+to declare the view name you want to override.
 
-* Hide a viewlet
+More info
 
-* Changing viewlet manager layout
+* http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
 
-* Override main template
+Override an old style page template (skins overrides)
+======================================================
 
-* Add a portlet
+Add a viewlet
+======================================================
 
-* Override a portlet rendering
+Override a viewlet
+======================================================
 
-* Override CSS styles
+Hide a viewlet
+======================================================
 
-* Override a logo
+Changing viewlet manager layout
+======================================================
 
-* Add new CSS
+Override main template
+======================================================
 
-* Add new Javascript
+Add a portlet
+======================================================
 
-* Change content type default view
+Override a portlet rendering
+======================================================
 
-* Creating new folder-like listing view
+Override CSS styles
+======================================================
 
-* Add a new dynamic view to a folder
+Override a logo
+======================================================
+
+Add new CSS file
+======================================================
+
+Add new Javascript
+======================================================
+
+Change content type default view
+======================================================
+
+Creating new folder-like listing view
+======================================================
+
+Add a new dynamic view to a folder
+======================================================
 
 Authors
 ---------
 
 * `Mikko Ohtamaa <http://opensourcehacker.com>`_
 
-
+* `Érico Andrei  <https://twitter.com/#!/ericof>`_
 
