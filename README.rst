@@ -80,12 +80,16 @@ The defaukt installation comes with
 
 * Hello world view which is available at http://localhost:8080/Plone/@@helloworld
 
-Renaming
------------
+Renaming / personalize
+-------------------------
 
-For changing the name ``yourtheme`` to something else a simple
+For changing the name ``yourtheme`` package name to something else
+there exist ``personalize.py``.
 
-TODO
+Example::
+
+	cd src/yourtheme
+	./personalize yourfancyname # Will create a copy src/yourfancyname out of yourtheme
 
 Dive into
 -----------
