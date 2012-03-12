@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!--
+
+ http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/javascript.html#include-javascript-on-every-page
+
+ -->
+
+<object name="portal_javascripts">
+    <javascript
+        id="++resource++yourtheme/main.js"
+        cacheable="True" compression="safe" cookable="True"
+        enabled="True" expression=""  inline="False" insert-after="toc.js"/>
+</object>

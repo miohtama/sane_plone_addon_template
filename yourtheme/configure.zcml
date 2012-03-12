@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"  
+    i18n_domain="yourtheme">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <grok:grok package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="yourtheme"
+      directory="profiles/default"
+      description=''
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <cmf:registerDirectory name="skins" recursive="true"/>
+
+</configure>

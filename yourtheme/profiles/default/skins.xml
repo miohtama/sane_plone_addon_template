@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="yourtheme">
+
+ <object name="yourtheme"
+    meta_type="Filesystem Directory View"
+    directory="yourtheme:skins/yourtheme"/>
+
+ <skin-path name="yourtheme" based-on="Sunburst Theme">
+  <layer name="yourtheme"
+     insert-before="custom"/>
+ </skin-path>
+
+</object>

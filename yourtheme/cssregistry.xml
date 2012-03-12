@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--  
+
+      http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html#registering-a-new-css-file
+
+-->
+<object name="portal_css">
+
+   <stylesheet
+      id="++resource++yourtheme/main.css"
+      media="" rel="stylesheet" rendering="import"
+      cacheable="True" compression="safe" cookable="True"
+      enabled="1" expression="" insert-after="ploneKss.css"/>
+
+</object>
