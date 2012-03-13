@@ -8,14 +8,18 @@
 
 """
 
+# Zope imports
+from zope.interface import Interface
 from five import grok
-
-from interfaces	import IAddonSpecific, IThemeSpecific
-
 from Products.CMFCore.interfaces import ISiteRoot
 
-grok.templatedir("view-templates")
+# Local imports
+from interfaces	import IAddonSpecific, IThemeSpecific
+
+grok.templatedir("templates")
 grok.layer(IThemeSpecific)
+
+# EXAMPLES START
 
 class HelloWorld(grok.View):
 	"""
@@ -26,5 +30,9 @@ class HelloWorld(grok.View):
 
 	http://localhost:8080/Plone/@@helloworld
 	"""
+
+
+	# use grok.context(Interface) to associate view with every content item
 	grok.context(ISiteRoot)
 
+# EXAMPLES END

@@ -4,6 +4,8 @@
 
 	* http://collective-docs.readthedocs.org/en/latest/components/interfaces.html
 
+    * http://collective-docs.readthedocs.org/en/latest/views/layers.html
+
 """
 
 from zope.interface import Interface 

@@ -42,6 +42,20 @@ def process(fname, newname):
 
         data = data.replace(TEMPLATE_NAME, newname)
 
+        # Clean up all lines between EXAMPLES START and EXAMPLES END section
+        new_lines = []
+        filtering = False
+        for line in data.split("\n"):
+            if "EXAMPLES START" in line:
+                filtering = True
+            elif "EXAMPLES END" in line:
+                filtering = False
+            
+            if not filtering:
+                new_lines.append(line)
+
+        data = "\n".join(new_lines)
+
         f = open(fname, "wt")       
         f.write(data)
         f.close()
@@ -52,6 +66,17 @@ def process(fname, newname):
         # Rename youraddon folders to something else
         newname = os.path.join(path, newname)
         shutil.move(fname, newname)
+
+def post_cleanup(target, newname):
+    """
+    Remove unneeded files.
+    """
+
+    # Clean up templates folder from all templates
+    templates = os.path.join(target, newname, "templates")
+    for name in os.listdir(templates):
+        fname = os.path.join(templates, name)
+        os.remove(fname)
 
 
 def fancy_replace(newname):
@@ -78,6 +103,8 @@ def fancy_replace(newname):
             fname = os.path.join(root, name)
             process(fname, newname)
 
+    post_cleanup(target, newname)
+
 def main():
     """ """
 
@@ -87,6 +114,7 @@ def main():
         sys.exit(1)
 
     fancy_replace(sys.argv[1])
+
 
 if __name__ == "__main__":
     main()

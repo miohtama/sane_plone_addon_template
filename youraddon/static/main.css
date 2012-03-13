@@ -1,0 +1,16 @@
+/**
+ * Your CSS styles go here.
+ * This file is deployed as ++resource++youraddon/main.css on your site 
+ * and automatically included in merge bundles via cssregistry.xml.
+ *
+ * More information
+ *
+ * http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html
+ */ 
+
+/* EXAMPLES START */
+ .my-footer-viewlet {
+ 	text-align: center;
+ 	cursor: pointer;
+ }
+/* EXAMPLES END */

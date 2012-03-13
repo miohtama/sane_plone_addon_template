@@ -31,6 +31,8 @@ Goals
 
 * File system based editing, giving 100% full access to change everything vs. old ZMI based through-the-web overrides
 
+* Embrases modern development practices (GitHub and stuff)
+
 This is a barebone code drop and does not depend on more or less
 crappy Python templating solutions. There is no need for using code generators,
 as actions like adding a view are simple code copy-pastes following
@@ -41,7 +43,7 @@ Just clone it, hack and go.
 Prerequisites
 ---------------
 
-* Working UNIX environment (e.g. Cygwin for Windows should be fine)
+* Working UNIX environment (Cygwin for Windows should be fine)
 
 * Basic command-line usage knowledge
 
@@ -53,7 +55,7 @@ Get tarball from GitHub.
 Extract to ``src/`` folder under your buildout folder::
 
 	cd src
-	git clone git@github.com:miohtama/sane_plone4_theme_template.git
+	git clone git@github.com:miohtama/sane_plone_addon_template.git
 
 Add Dexterity extends line to your ``buildout.cfg``:
 
@@ -76,11 +78,25 @@ of re-running buildout and activating the add-on.
 After the add-on is activated, the theme overrides from 
 ``youraddon`` become active for views, viewlets.
 
-The defaukt installation comes with 
+Bootstrapping the development
+---------------------------------
 
-* a logo override example
+The default installation comes with some sample customizations highlighting the best pratices.
+``youraddon`` is usable as is for tinkering.
 
-* Hello world view which is available at http://localhost:8080/Plone/@@helloworld
+However, you are supposed to remove these customizations and rename the add-on 
+when you adapt the code skeleton for your own needs.
+
+You can do with ``personalize.py`` script. The script will remove all example view, viewlet, CSS and JS customizations by removing source code lines between ``EXAMPLES START`` and ``EXAMPLES END`` markers.
+The script will also give a new name for Python package.
+
+Example::
+
+	cd src/youraddon
+	# Will create a copy src/mycompanyaddon out of youraddon
+	# with all examples removed
+	./personalize mycompanyaddon 
+
 
 Theme or add-on
 ------------------
@@ -103,17 +119,6 @@ You can change it to theme-like by
 More info
 
 * http://collective-docs.readthedocs.org/en/latest/views/layers.html
-
-Renaming / personalize
--------------------------
-
-For changing the name ``youraddon`` package name to something else
-there exist ``personalize.py``.
-
-Example::
-
-	cd src/youraddon
-	./personalize yourfancyaddonname # Will create a copy src/yourfancyaddonname out of youraddon
 
 Dive into
 -----------
@@ -153,10 +158,41 @@ More info
 
 * http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
 
+Finding view source code to override
+=======================================
+
+Plone views can be
+
+* View classes (new style): this come from Python packages
+
+* Pure page templates, no Python code attached (old style): these come from plone_skins tool
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/views/browserviews.html#finding-a-view-to-override
+
+Refer to static resources in page templates
+==============================================
+
+Example::
+
+    <img tal:attributes="src string:${context/portal_url}/++resource++youraddon/pony.png" alt="" />
+
+More info:
+
+* http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/resourcefolders.html
+
+* http://collective-docs.readthedocs.org/en/latest/images/templates.html
+
 Override a view template
 ===========================
 
-z3c.jbot override.
+Use ``z3c.jbot`` override by dropping a corresponding 
+template to ``templates`` folder.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/views/browserviews.html 
 
 Override a view class
 ===========================
@@ -171,8 +207,36 @@ More info
 Override an old style page template (skins overrides)
 ======================================================
 
+Use ``z3c.jbot`` override by dropping a corresponding 
+template to ``templates`` folder.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/skin_layers.html#nested-folder-overrides-z3c-jbot
+
+* http://pypi.python.org/pypi/z3c.jbot
+
 Add a viewlet
 ======================================================
+
+An example provided in ``viewlets.py`` to adding a custom footer viewlet.
+
+
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
+
+* http://grok.zope.org/doc/current/reference/components.html?highlight=viewlet#grok-viewlet
+
+Override a viewlet template
+====================================================== 
+
+z3c.jbot override example provided for the site logo in ``templates``.
+
+More info
+
+* http://pypi.python.org/pypi/z3c.jbot
 
 Override a viewlet
 ======================================================
@@ -201,8 +265,12 @@ Override a logo
 Add new CSS file
 ======================================================
 
+Example provided in ``main.css``.
+
 Add new Javascript
 ======================================================
+
+Example provided in ``main.js``.
 
 Change content type default view
 ======================================================
@@ -236,4 +304,6 @@ Authors
 * `Mikko Ohtamaa <http://opensourcehacker.com>`_
 
 * `Érico Andrei  <https://twitter.com/#!/ericof>`_
+
+* Pony by `Lili / novotnaci <http://openclipart.org/detail/102193/foal-by-novotnaci>`_
 

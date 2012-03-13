@@ -20,7 +20,7 @@ setup(name = "youraddon",
     author = "",
     author_email = "",
     url = "",
-    install_requires = ["five.grok"],
+    install_requires = ["five.grok", "z3c.jbot"],
     packages = ['youraddon'],
     classifiers=[
         "Framework :: Plone",
