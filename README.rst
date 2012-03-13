@@ -180,6 +180,31 @@ More info
 
 * http://collective-docs.readthedocs.org/en/latest/views/layers.html
 
+Theory of add-on development
+------------------------------
+
+You do not replace Plone functionality by directly messing Plone files.
+Instead you
+
+* extend it to add new
+
+* override it to customize out-of-the-box functionality
+
+Overrides and extensions become effective when your add-on is installed
+and the effect disappears when your add-on is uninstalled.
+
+This way you keep your own customizations separate from Plone core.
+You do not never edit Plone core source code files directly.
+When Plone is updated, these files will be replaced with updated versions.
+This does hold true for all CMSes, not just Plone.
+Never edit anything under ``parts/`` or ``eggs/`` folders
+in your Plone installation.
+
+Plone has mechanism called layers telling which add-on / theme
+parts are effective once. Once your add-on is installed,
+its layer takes the highest priority in Plone installation,
+overriding functionality with lower priority.
+
 Dive into
 -----------
 
