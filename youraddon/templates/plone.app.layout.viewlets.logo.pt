@@ -1,0 +1,19 @@
+<!-- 
+
+	Original code here:
+
+	https://github.com/plone/plone.app.layout/blob/master/plone/app/layout/viewlets/logo.pt
+
+	This override becomes effective via z3c.jbot
+
+-->
+
+<a metal:define-macro="portal_logo"
+   id="portal-logo"
+   title="Home"
+   accesskey="1"
+   i18n:domain="plone"
+   href="#"
+   i18n:attributes="title">
+    <img tal:attributes="src string:${context/portal_url}/++resource++youraddon/pony.png" alt="" />
+</a>
