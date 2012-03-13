@@ -40,16 +40,31 @@ Goals
 
 * Good folder structure: flat is better than nested
 
-* File system based editing, giving 100% full access to change everything vs. old ZMI based through-the-web overrides
-
-* Embrases modern development practices (GitHub and stuff)
-
 This is a barebone code drop and does not depend on, more or less,
 crappy Python templating solutions. There is no need for using code generators,
 as actions like adding a view are simple code copy-pastes following
 the sane defaults and Dont Repeat Yourself (DRY) principles.
 
 Just clone it to ``src/`` folder, hack and go.
+
+Benefits over through-the-web customizations
+==============================================
+
+Old Zope 2 customization methods of using Zope Management Interface
+are seriously limited and rarely take you even half-way of your development
+needs. But ``youraddon`` template
+
+* Provides full power of Python. File system based editing, giving 100% full access to change everything vs. old ZMI based through-the-web overrides. Use real text editor instead of <textarea>.
+
+* Your code can go properly under version control
+
+* Embraces modern development practices, like GitHub, jQuery and stuff
+
+* You can still have the speed of instant code changes using *sauna.reload* package
+  as described below
+
+NO MORE THROUGH-THE-WEB PYTHON SCRIPTS, EVER, FOR ANYONE.
+DO NOT DO ADD NEW... SCRIPT (PYTHON), COMPRENDE? 
 
 Prerequisites
 ---------------
