@@ -1,3 +1,5 @@
+
+
 .. :contents: 
 
 Introduction
@@ -352,6 +354,15 @@ No tabs
 ============
 
 All text editors: set save tabs as spaces, never use hard tabs.
+
+Dynamically generated files
+=============================
+
+*Never* import the following files to version control:
+
+* Various .egg-info folders (automatically generated when buildout runs)
+
+* .mo files (compiled gettext files recreated on Plone start-up)
 
 JSLint
 ============
