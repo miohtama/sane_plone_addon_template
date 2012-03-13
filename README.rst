@@ -68,7 +68,9 @@ DO NOT DO ADD NEW... SCRIPT (PYTHON), COMPRENDE?
 NO MORE EDITING IN PUNY TEXTAREA, USE YOUR FAVORITE EDITOR,
 WITH SYNTAX HIGHLIGHTING.
 NO MORE UNAUTHORIZED EXCEPTION - IMPORT ALL PYTHON MODULES
-YOU WISH. NO MORE ZSQL METHODS. 
+YOU WISH. NO MORE ZSQL METHODS. FEEL FREE.. OF ALL THAT
+LEGACY CRAP. FEEL THE AGILE DEVELOPMENT RUNNING IN YOUR
+VEINS. INVENT, CREATE, ENJOY. 
  
 Of course, one cannot understand this pain unless
 has gone through Plone 2... Plone 4.
@@ -207,8 +209,27 @@ Automatic Plone restarts
 Use `sauna.reload <http://pypi.python.org/pypi/sauna.reload>`_ on UNIX systems to reload your code automatically.
 This will considerably raise your working effectiveness.
 
+When in development mode, even if not using *sauna.reload* Plone reloads following bits automatically
+
+* .pt page templates
+
+* CSS
+
+* Javascript
+
+* ``profiles/default`` XML files
+
+The following code is not reloaded:
+
+* Python
+
+* ZCML
+
 Add a view
 ============
+
+Views present functionality or content. Views can be associated with
+content types or site root.
 
 A HelloWorld view example is provided in ``views.py``. Feel free to copy-paste around.
 
@@ -297,14 +318,39 @@ More info
 Override a viewlet
 ======================================================
 
+If you need to touch viewlet Python class code the easiest
+approach is to
+
+* Copy-paste the orignal viewlet Python code as a whole
+
+* Copy-paste the orignal viewlet template code as a whole
+
+Then register your own viewlet with the name of the original
+using ``grok.name()``.
+
+It's possible, though often suicidal, try to extend the orignal
+viewlet and then override.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/views/viewlets.html
+
 Hide a viewlet
 ======================================================
+
+* http://collective-docs.readthedocs.org/en/latest/views/viewlets.html
 
 Changing viewlet manager layout
 ======================================================
 
+* http://collective-docs.readthedocs.org/en/latest/views/viewlets.html
+
 Override main template
 ======================================================
+
+To change Plone main presentation layout
+
+* http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/template_basics.html#main-template
 
 Add a portlet
 ======================================================
@@ -322,10 +368,6 @@ Add a new CSS styles and file
 ======================================================
 
 Example provided in ``main.css``.
-
-Plone should automatically reload CSS files 
-in the development mode when you hit *Refresh*. 
-in the browser.
 
 More info
 
