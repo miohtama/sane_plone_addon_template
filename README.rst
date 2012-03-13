@@ -8,7 +8,7 @@ This project is a sane Plone 4 add-om / theme template which provides
 The skeleton is not limited to visual aspects, but
 allow customizing Plone UI aspects beyond simple CSS changes
 or HTML transformations easily. It is indended
-to replace old Zopeskel / plone add-on skeleton 
+to replace old *ZopeSkel plone* add-on template 
 with a version embracing modern best development practices.
 
 Supported Plone versions
@@ -57,18 +57,23 @@ Prerequisites
 Usage
 -------
 
-Get tarball from GitHub.
-
-Extract to ``src/`` folder under your buildout folder::
+Get the tempalte source code from GitHub and 
+to ``src/`` folder under your Plone installation folder::
 
 	cd src
 	git clone git@github.com:miohtama/sane_plone_addon_template.git
 
-Add Dexterity extends line to your ``buildout.cfg``:
+`Add Dexterity extends line <http://plone.org/products/dexterity/documentation/how-to/install>`_ to your ``buildout.cfg``:
 
-* http://plone.org/products/dexterity/documentation/how-to/install
+	extends = 
+		...
+		some lines here
+		...
+		http://good-py.appspot.com/release/dexterity/1.2?plone=4.1.4
 
-Add the following bits to ``buildout.cfg`` to install add-on::
+Note that this depends on Plone version. Fix to match to your version.
+
+Furthermore, add the following bits to ``buildout.cfg`` to install the code skeleton add-on::
 
 	develop = 
 		src/youraddon
@@ -82,8 +87,10 @@ of re-running buildout and activating the add-on.
 
 * http://plone.org/documentation/kb/installing-add-ons-quick-how-to
 
-After the add-on is activated, the theme overrides from 
-``youraddon`` become active for views, viewlets.
+After the add-on is installed in Plone control panel you should
+see a pony greeting you on your site instead of the 
+Plone logo, showing that the code skeleton examples
+are active.
 
 Bootstrapping the development of your own add-on
 --------------------------------------------------
