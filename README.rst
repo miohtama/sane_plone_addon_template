@@ -65,6 +65,14 @@ needs. But ``youraddon`` template
 
 NO MORE THROUGH-THE-WEB PYTHON SCRIPTS, EVER, FOR ANYONE.
 DO NOT DO ADD NEW... SCRIPT (PYTHON), COMPRENDE? 
+NO MORE EDITING IN PUNY TEXTAREA, USE YOUR FAVORITE EDITOR,
+WITH SYNTAX HIGHLIGHTING.
+NO MORE UNAUTHORIZED EXCEPTION - IMPORT ALL PYTHON MODULES
+YOU WISH. NO MORE ZSQL METHODS. 
+ 
+Of course, one cannot understand this pain unless
+has gone through Plone 2... Plone 4.
+Just forget all other tutorials and do as said here.
 
 Prerequisites
 ---------------
