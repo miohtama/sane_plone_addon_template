@@ -3,27 +3,34 @@
 Introduction
 -------------
 
-A sane Plone 4 theme template. Provides ``youraddon`` code skeleton.
+This project is a sane Plone 4 add-om / theme template which provides 
+``youraddon`` code skeleton.
 The skeleton is not limited to visual aspects, but
 allow customizing Plone UI aspects beyond simple CSS changes
-or HTML transformations easily.
+or HTML transformations easily. It is indended
+to replace old Zopeskel / plone add-on skeleton 
+with a version embracing modern best development practices.
+
+Supported Plone versions
+----------------------------
+
+Supported Plone versions are 4.1 and above. 
+Dexterity pindowns are required, though there is 
+no dependency to ``plone.app.dexterity`` package,
+only ``five.grok``.
 
 Goals
 -------
 
 * EASY
 
-* Well documented, follows best practices, cross-refers to documentation
+* Well documented, follows best practices, cross-refers to up-to-date documentation
 
-* Provides basic solution for basic theming and UI customizations needs
+* Provides basic solution for basic theming and UI customizations needs with documented instructions
 
-* Minimum boilerplate: no ZCML, explicit folder structure, etc. Based on Grok and Dexterity frameworks
+* Minimum boilerplate: no unnecessary ZCML or folder structure, etc. Based on Grok and Dexterity frameworks
 
-* ``main.css`` boilerplate
-
-* ``main.js`` boilderplate
-
-* Documented intructions for basic UI customization tasks
+* ``main.css`` and ``main.js`` where front-end developers can directly copy-paste their code
 
 * Multilingual support (i18n)
 
@@ -78,25 +85,39 @@ of re-running buildout and activating the add-on.
 After the add-on is activated, the theme overrides from 
 ``youraddon`` become active for views, viewlets.
 
-Bootstrapping the development
----------------------------------
+Bootstrapping the development of your own add-on
+--------------------------------------------------
 
-The default installation comes with some sample customizations highlighting the best pratices.
-``youraddon`` is usable as is for tinkering.
+The default ``youraddon`` installation comes with some sample customizations highlighting the best pratices.
+These customizations are examples which are referred in documentation how to accomplish 
+certain development tasks with Plone.
+``youraddon`` installation is usable for tinkering as is.
 
-However, you are supposed to remove these customizations and rename the add-on 
+However, you are supposed to remove these example customizations and rename the add-on 
 when you adapt the code skeleton for your own needs.
 
 You can do with ``personalize.py`` script. The script will remove all example view, viewlet, CSS and JS customizations by removing source code lines between ``EXAMPLES START`` and ``EXAMPLES END`` markers.
 The script will also give a new name for Python package.
 
-Example::
+First uninstall ``youraddon`` add-on from your site if you installed it there.
+
+Then run personalize::
 
 	cd src/youraddon
 	# Will create a copy src/mycompanyaddon out of youraddon
 	# with all examples removed
 	./personalize mycompanyaddon 
 
+Now ``src/mycompanyaddon`` has been created. ``src/youraddon`` will be still around
+for further templating.
+
+You need to do respective name changes in ``buildout.cfg`` and re-run buildout.
+Then restart Plone, install add-on ``mycompanyaddon``.
+
+*personalize* will also clean up the add-on from orignal version control files.
+
+Note that currently *personalize* is one time operation, not incremental, and you cannot
+update to more recent version of the code skeleton. 
 
 Theme or add-on
 ------------------
@@ -221,8 +242,6 @@ Add a viewlet
 
 An example provided in ``viewlets.py`` to adding a custom footer viewlet.
 
-
-
 More info
 
 * http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
@@ -262,15 +281,31 @@ Override CSS styles
 Override a logo
 ======================================================
 
-Add new CSS file
+Add a new CSS styles and file
 ======================================================
 
 Example provided in ``main.css``.
+
+Plone should automatically reload CSS files 
+in the development mode when you hit *Refresh*. 
+in the browser.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html
 
 Add new Javascript
 ======================================================
 
 Example provided in ``main.js``.
+
+Plone should automatically reload CSS files 
+in the development mode when you hit *Refresh*. 
+in the browser.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/javascript.html
 
 Change content type default view
 ======================================================
@@ -281,22 +316,61 @@ Creating new folder-like listing view
 Add a new dynamic view to a folder
 ======================================================
 
+Add translated strings
+===========================
+
+You can add multilingual strings to user interface which are
+translated using *gettext*.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/i18n/internalization.html
+
+Adding new language
+===========================
+
+You can include new languages to the translation mix.
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/i18n/internalization.html
+
 Best practices
 -----------------
+
+Here are listed some best practices which are recommended when working 
+with Plone, Python and web development source code.
+
+No tabs
+============
 
 All text editors: set save tabs as spaces, never use hard tabs.
 
 JSLint
+============
 
 * http://opensourcehacker.com/2011/09/23/using-javascript-jslint-validator-in-eclipse-and-aptana-studio/
 
 PEP8
+============
 
 * TODO 
 
 PyFlaks
+============
 
 * TODO
+
+Troubleshooting
+------------------
+
+If you get this::
+
+	PicklingError: Can't pickle <class 'youraddon.interfaces.IAddonSpecific'>: import of module youraddon.interfaces failed 
+
+This means that you did not follow uninstall instructions carefully. 
+Re-add ``youraddon`` in ``buildout.cfg``, re-run buildout, then uninstall it in Plone control panel
+and then re-remove from ``builout.cfg``.	
 
 Authors
 ---------

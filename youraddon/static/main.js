@@ -18,6 +18,9 @@
 
 
      $(document).ready(function() {
+
+     	// Page has been loaded, put your custom JS logic here
+
      	// EXAMPLES START
      	// Example how to manipulate my-custom-footer viewlet
      	// and install a click handler via jQuery

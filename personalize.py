@@ -36,10 +36,13 @@ def process(fname, newname):
     # Because we are workin on a copy, don't be
     # that pick about atomicity
     if not os.path.isdir(fname):
+
+        # Read the source file
         f = open(fname, "rt")
         data = f.read()
         f.close()
 
+        # Replace template variables
         data = data.replace(TEMPLATE_NAME, newname)
 
         # Clean up all lines between EXAMPLES START and EXAMPLES END section
@@ -48,12 +51,14 @@ def process(fname, newname):
         for line in data.split("\n"):
             if "EXAMPLES START" in line:
                 filtering = True
-            elif "EXAMPLES END" in line:
-                filtering = False
             
             if not filtering:
                 new_lines.append(line)
 
+            if "EXAMPLES END" in line:
+                filtering = False
+
+        # Write the output
         data = "\n".join(new_lines)
 
         f = open(fname, "wt")       
@@ -61,7 +66,7 @@ def process(fname, newname):
         f.close()
 
     path, file = os.path.split(fname)
-    print "Got file:" + file
+
     if file == TEMPLATE_NAME:
         # Rename youraddon folders to something else
         newname = os.path.join(path, newname)
@@ -77,7 +82,22 @@ def post_cleanup(target, newname):
     for name in os.listdir(templates):
         fname = os.path.join(templates, name)
         os.remove(fname)
+    
+    # Remove git data if it's around
+    git = os.path.join(target, ".git")
+    if os.path.exists(git):
+        shutil.rmtree(git)
 
+    # Remove egg info if it's around
+    eggy = os.path.join(target, "youraddon.egg-info")
+    if os.path.exists(eggy):
+        shutil.rmtree(eggy)
+
+
+    # Remove README
+    readme = os.path.join(target, "README.rst")
+    if os.path.exists(readme):
+        os.remove(readme)
 
 def fancy_replace(newname):
     """ """
@@ -104,6 +124,8 @@ def fancy_replace(newname):
             process(fname, newname)
 
     post_cleanup(target, newname)
+
+    print "Created ../" + newname
 
 def main():
     """ """
