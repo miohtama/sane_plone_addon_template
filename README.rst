@@ -29,6 +29,8 @@ Goals
 
 * Good folder structure: flat is better than nested
 
+* File system based editing, giving 100% full access to change everything vs. old ZMI based through-the-web overrides
+
 This is a barebone code drop and does not depend on more or less
 crappy Python templating solutions. There is no need for using code generators,
 as actions like adding a view are simple code copy-pastes following
@@ -80,6 +82,28 @@ The defaukt installation comes with
 
 * Hello world view which is available at http://localhost:8080/Plone/@@helloworld
 
+Theme or add-on
+------------------
+
+The difference between Plone theme and Plone add-on is that
+only one theme can be active at a time. Resources like views,
+static media, etc. depend on whether the theme / add-on layer is active or not.
+
+* Theme layer becomes activated through portal_skins properties tab (*Default skin* option matches configure.zcml declaration)
+
+* Add-on layer becomes activated when add-on is installed (activated via ``browserlayers.xml``)
+
+The code skeleton default behavior is add-on like.
+You can change it to theme-like by 
+
+* Uncommenting directives in ``profiles/defaul/skins.xml``.
+
+* Changing ``grok.layer()`` directives from ``IAddonSpecific`` to ``IThemeSpecific``
+
+More info
+
+* http://collective-docs.readthedocs.org/en/latest/views/layers.html
+
 Renaming / personalize
 -------------------------
 
@@ -89,7 +113,7 @@ there exist ``personalize.py``.
 Example::
 
 	cd src/yourtheme
-	./personalize yourfancyname # Will create a copy src/yourfancyname out of yourtheme
+	./personalize yourfancyaddonname # Will create a copy src/yourfancyaddonname out of yourtheme
 
 Dive into
 -----------
@@ -188,6 +212,23 @@ Creating new folder-like listing view
 
 Add a new dynamic view to a folder
 ======================================================
+
+Best practices
+-----------------
+
+All text editors: set save tabs as spaces, never use hard tabs.
+
+JSLint
+
+* http://opensourcehacker.com/2011/09/23/using-javascript-jslint-validator-in-eclipse-and-aptana-studio/
+
+PEP8
+
+* TODO 
+
+PyFlaks
+
+* TODO
 
 Authors
 ---------
