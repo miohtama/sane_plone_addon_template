@@ -6,7 +6,9 @@ Introduction
 -------------
 
 This project is a sane Plone 4 add-om / theme template which provides 
-``youraddon`` code skeleton.
+``youraddon`` code skeleton. It allows you to quicky start
+developing your own Python, CSS and JS code for Plone. 
+
 The skeleton is not limited to visual aspects, but
 allow customizing Plone UI aspects beyond simple CSS changes
 or HTML transformations easily. It is indended
@@ -42,12 +44,12 @@ Goals
 
 * Embrases modern development practices (GitHub and stuff)
 
-This is a barebone code drop and does not depend on more or less
+This is a barebone code drop and does not depend on, more or less,
 crappy Python templating solutions. There is no need for using code generators,
 as actions like adding a view are simple code copy-pastes following
 the sane defaults and Dont Repeat Yourself (DRY) principles.
 
-Just clone it, hack and go.
+Just clone it to ``src/`` folder, hack and go.
 
 Prerequisites
 ---------------
@@ -63,9 +65,9 @@ Get the tempalte source code from GitHub and
 to ``src/`` folder under your Plone installation folder::
 
 	cd src
-	git clone git@github.com:miohtama/sane_plone_addon_template.git
+	git clone git@github.com:miohtama/sane_plone_addon_template.git youraddon
 
-`Add Dexterity extends line <http://plone.org/products/dexterity/documentation/how-to/install>`_ to your ``buildout.cfg``:
+`Add Dexterity extends line <http://plone.org/products/dexterity/documentation/how-to/install>`_ to your ``buildout.cfg``::
 
 	extends = 
 		...
@@ -85,14 +87,17 @@ Furthermore, add the following bits to ``buildout.cfg`` to install the code skel
 		youraddon
 
 Then follow standard Plone add-on installation instructions
-of re-running buildout and activating the add-on.
+of re-running buildout and activating the add-on
 
 * http://plone.org/documentation/kb/installing-add-ons-quick-how-to
 
-After the add-on is installed in Plone control panel you should
-see a pony greeting you on your site instead of the 
-Plone logo, showing that the code skeleton examples
-are active.
+After *youraddon* add-on is installed in Plone control panel you should
+see a pony greeting you on instead of the 
+Plone site logo, showing that the code skeleton examples
+are active. 
+
+Now you can proceed to start adding your own code bits.
+See Tasks section below for recipes for most common Plone customization needs. 
 
 Bootstrapping the development of your own add-on
 --------------------------------------------------
