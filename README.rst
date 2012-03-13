@@ -203,7 +203,11 @@ in your Plone installation.
 Plone has mechanism called layers telling which add-on / theme
 parts are effective once. Once your add-on is installed,
 its layer takes the highest priority in Plone installation,
-overriding functionality with lower priority.
+overriding functionality with lower priority. 
+
+Layers are the central element of well-functioning 
+plug-in architecture, ensuring that add-ons don't
+step on each others toes resulting code conflicts.
 
 Dive into
 -----------
