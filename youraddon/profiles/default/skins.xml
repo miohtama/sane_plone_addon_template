@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <object name="portal_skins" allow_any="False" cookie_persistence="False"
-   default_skin="yourtheme">
+   default_skin="youraddon">
 
- <object name="yourtheme"
+ <object name="youraddon"
     meta_type="Filesystem Directory View"
-    directory="yourtheme:skins/yourtheme"/>
+    directory="youraddon:skins/youraddon"/>
 
  <!-- Activate this if you want to your code to behave as theme -->
  
- <skin-path name="yourtheme" based-on="Sunburst Theme">
-  <layer name="yourtheme"
+ <skin-path name="youraddon" based-on="Sunburst Theme">
+  <layer name="youraddon"
      insert-before="custom"/>
  </skin-path>
 

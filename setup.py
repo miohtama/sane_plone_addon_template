@@ -1,6 +1,6 @@
 """
 
-    Declare a Python package yourtheme
+    Declare a Python package youraddon
 
     See 
 
@@ -14,14 +14,14 @@
 
 from distutils.core import setup
 
-setup(name = "yourtheme",
+setup(name = "youraddon",
     version = "0.0",
     description = "A Plone theme",
     author = "",
     author_email = "",
     url = "",
     install_requires = ["five.grok"],
-    packages = ['yourtheme'],
+    packages = ['youraddon'],
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",

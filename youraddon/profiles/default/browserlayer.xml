@@ -1,6 +1,6 @@
 <layers>
  <layer
-     name="yourtheme"
-     interface="yourtheme.interfaces.IAddonSpecific"
+     name="youraddon"
+     interface="youraddon.interfaces.IAddonSpecific"
      />
 </layers>

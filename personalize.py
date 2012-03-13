@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 
-    Creates a personally named version of yourtheme.
+    Creates a personally named version of youraddon.
 
     1. Copy to a new folder (assume we are in buildout/src)
 
@@ -19,7 +19,7 @@ import shutil
 import os
 import fnmatch
 
-TEMPLATE_NAME="yourtheme"
+TEMPLATE_NAME="youraddon"
 
 IGNORE_MASKS=["*.pyc", "*.pyo", "*.git*", "*.egg*", "*.EGG*"]
 
@@ -49,7 +49,7 @@ def process(fname, newname):
     path, file = os.path.split(fname)
     print "Got file:" + file
     if file == TEMPLATE_NAME:
-        # Rename yourtheme folders to something else
+        # Rename youraddon folders to something else
         newname = os.path.join(path, newname)
         shutil.move(fname, newname)
 

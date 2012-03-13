@@ -8,7 +8,7 @@
 
 <object name="portal_javascripts">
     <javascript
-        id="++resource++yourtheme/main.js"
+        id="++resource++youraddon/main.js"
         cacheable="True" compression="safe" cookable="True"
         enabled="True" expression=""  inline="False" insert-after="toc.js"/>
 </object>

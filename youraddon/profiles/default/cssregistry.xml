@@ -7,7 +7,7 @@
 <object name="portal_css">
 
    <stylesheet
-      id="++resource++yourtheme/main.css"
+      id="++resource++youraddon/main.css"
       media="" rel="stylesheet" rendering="import"
       cacheable="True" compression="safe" cookable="True"
       enabled="1" expression="" insert-after="ploneKss.css"/>

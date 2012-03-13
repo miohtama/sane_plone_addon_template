@@ -3,7 +3,7 @@
 Introduction
 -------------
 
-A sane Plone 4 theme template. Provides ``yourtheme`` code skeleton.
+A sane Plone 4 theme template. Provides ``youraddon`` code skeleton.
 The skeleton is not limited to visual aspects, but
 allow customizing Plone UI aspects beyond simple CSS changes
 or HTML transformations easily.
@@ -62,11 +62,11 @@ Add Dexterity extends line to your ``buildout.cfg``:
 Add the following bits to ``buildout.cfg`` to install add-on::
 
 	develop = 
-		src/yourtheme
+		src/youraddon
 
 	eggs =
 		...
-		yourtheme
+		youraddon
 
 Then follow standard Plone add-on installation instructions
 of re-running buildout and activating the add-on.
@@ -74,7 +74,7 @@ of re-running buildout and activating the add-on.
 * http://plone.org/documentation/kb/installing-add-ons-quick-how-to
 
 After the add-on is activated, the theme overrides from 
-``yourtheme`` become active for views, viewlets.
+``youraddon`` become active for views, viewlets.
 
 The defaukt installation comes with 
 
@@ -107,25 +107,25 @@ More info
 Renaming / personalize
 -------------------------
 
-For changing the name ``yourtheme`` package name to something else
+For changing the name ``youraddon`` package name to something else
 there exist ``personalize.py``.
 
 Example::
 
-	cd src/yourtheme
-	./personalize yourfancyaddonname # Will create a copy src/yourfancyaddonname out of yourtheme
+	cd src/youraddon
+	./personalize yourfancyaddonname # Will create a copy src/yourfancyaddonname out of youraddon
 
 Dive into
 -----------
 
-This source code provides Python package (a.k.a egg) ``yourtheme``.
+This source code provides Python package (a.k.a egg) ``youraddon``.
 The package can be used as a Plone add-on to override Plone user interface functionality easily.
 
 The folder layout follows Python package layout where you have
 
 * Top level folder with ``setup.py`` package metadata
 
-* ``yourtheme`` Python module 
+* ``youraddon`` Python module 
 
 * ``static`` `Grok static folder <http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/resourcefolders.html#grok-static-media-folder>`_ for images, CSS and Javascript.
 
