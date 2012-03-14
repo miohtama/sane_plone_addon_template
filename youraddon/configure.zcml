@@ -8,6 +8,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"    
     i18n_domain="youraddon">
 
+  <include package="five.grok" />
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <grok:grok package="." />
