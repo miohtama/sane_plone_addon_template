@@ -23,6 +23,15 @@ TEMPLATE_NAME="youraddon"
 
 IGNORE_MASKS=["*.pyc", "*.pyo", "*.git*", "*.egg*", "*.EGG*"]
 
+FILES_TO_DELETE=[
+    ".git", 
+    "README.rst", 
+    "youraddon.egg-info", 
+    "youraddon/templates/helloworld.pt",
+    "youraddon/templates/myfooter.pt",
+    "youraddon/templates/plone.app.layout.viewlets.logo.pt",
+]
+
 def process(fname, newname):
     """ """
 
@@ -77,28 +86,14 @@ def post_cleanup(target, newname):
     Remove unneeded files.
     """
 
-    # Clean up templates folder from all templates
-    templates = os.path.join(target, newname, "templates")
-    for name in os.listdir(templates):
-        fname = os.path.join(templates, name)
-        os.remove(fname)
-    
-    # Remove git data if it's around
-    git = os.path.join(target, ".git")
-    if os.path.exists(git):
-        shutil.rmtree(git)
-
-    # Remove egg info if it's around
-    eggy = os.path.join(target, "youraddon.egg-info")
-    if os.path.exists(eggy):
-        shutil.rmtree(eggy)
-
-
-    # Remove README
-    readme = os.path.join(target, "README.rst")
-    if os.path.exists(readme):
-        os.remove(readme)
-
+    for f in FILES_TO_DELETE:
+        fname = os.path.join(target, f)
+        if os.path.exists(fname):
+            if os.path.isdir(fname):
+                shutil.rmtree(fname)
+            else:
+                os.remove(fname)
+                
 def fancy_replace(newname):
     """ """
 
@@ -113,6 +108,8 @@ def fancy_replace(newname):
     # Create a copy of the skeleton
     shutil.copytree(source, target)
 
+    post_cleanup(target, newname)
+
     # Replace strings and filenames
     for root, dirs, files in os.walk(target, topdown=False):
         for name in files:
@@ -122,8 +119,6 @@ def fancy_replace(newname):
         for name in dirs:
             fname = os.path.join(root, name)
             process(fname, newname)
-
-    post_cleanup(target, newname)
 
     print "Created ../" + newname
 
