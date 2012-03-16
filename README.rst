@@ -112,6 +112,9 @@ Furthermore, add the following bits to ``buildout.cfg`` to install the code skel
 		...
 		youraddon
 
+Note: If you want to call Python package something else as ``youraddon`` you can
+change this by running ``personalize.py`` command later.
+
 Then follow standard Plone add-on installation instructions
 of re-running buildout and activating the add-on
 
