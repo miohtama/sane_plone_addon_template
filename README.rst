@@ -3,7 +3,9 @@
 Introduction
 -------------
 
-This project is a sane Plone 4 add-om / theme template which provides 
+**A simple Plone add-on / theme skeleton with instructions**
+
+This project is a sane Plone 4 add-on / theme template which provides 
 ``youraddon`` code skeleton. It allows you to quicky start
 developing your own Python, CSS and JS code for Plone. 
 
