@@ -1,4 +1,3 @@
-
 .. :contents: 
 
 Introduction
@@ -44,7 +43,8 @@ crappy Python templating solutions. There is no need for using code generators,
 as actions like adding a view are simple code copy-pastes following
 the sane defaults and Dont Repeat Yourself (DRY) principles.
 
-Just clone it to ``src/`` folder, hack and go.
+Just clone it to your installation as ``src/youraddon``,
+make sure necessary buildout changes have been made, hack and go.
 
 Benefits over through-the-web customizations
 ==============================================
@@ -84,6 +84,8 @@ Prerequisites
 
 Usage
 -------
+
+**Follow these instructions carefully**. No warranty for users who did not read the instructios.
 
 Get the tempalte source code from GitHub and 
 to ``src/`` folder under your Plone installation folder::
