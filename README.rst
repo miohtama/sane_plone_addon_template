@@ -1,5 +1,4 @@
 
-
 .. :contents: 
 
 Introduction
@@ -130,7 +129,7 @@ Bootstrapping the development of your own add-on
 The default ``youraddon`` installation comes with some sample customizations highlighting the best pratices.
 These customizations are examples which are referred in documentation how to accomplish 
 certain development tasks with Plone.
-``youraddon`` installation is usable for tinkering as is.
+``youraddon`` installation is usable for tinkering as is
 
 However, you are supposed to remove these example customizations and rename the add-on 
 when you adapt the code skeleton for your own needs.
@@ -146,6 +145,11 @@ Then run personalize::
 	# Will create a copy src/mycompanyaddon out of youraddon
 	# with all examples removed
 	./personalize mycompanyaddon 
+
+Please note that the template discourages usage of namespaces.
+Namespaces are not needed for your own customizations and cause extra boilerplate;
+if you wish to use namespaces like *collective* or *plone.app* you can manually shuffle files and folders
+around later.
 
 Now ``src/mycompanyaddon`` has been created. ``src/youraddon`` will be still around
 for further templating.
