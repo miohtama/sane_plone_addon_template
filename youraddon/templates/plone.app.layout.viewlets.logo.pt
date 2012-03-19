@@ -13,7 +13,7 @@
    title="Home"
    accesskey="1"
    i18n:domain="plone"
-   href="#"
+   tal:attributes="href context/portal_url"
    i18n:attributes="title">
     <img tal:attributes="src string:${context/portal_url}/++resource++youraddon/pony.png" alt="" />
 </a>
