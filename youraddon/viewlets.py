@@ -15,7 +15,7 @@ from five import grok
 from plone.app.layout.viewlets.interfaces import IPortalFooter
 
 # Local imports
-from interfaces	import IAddonSpecific, IThemeSpecific
+from interfaces import IAddonSpecific, IThemeSpecific
 
 grok.templatedir("templates")
 grok.layer(IAddonSpecific)
