@@ -12,7 +12,7 @@
 
 """
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(name = "youraddon",
     version = "0.0",
