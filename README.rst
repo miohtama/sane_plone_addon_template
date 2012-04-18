@@ -11,26 +11,26 @@ developing your own Python, CSS and JS code for Plone.
 
 The skeleton is not limited to visual aspects, but
 allow customizing Plone UI aspects beyond simple CSS changes
-or HTML transformations easily. It is indended
-to replace old *ZopeSkel plone* add-on template 
-with a version embracing modern best development practices.
+or HTML transformations easily. It is intended
+to replace the old *ZopeSkel plone* add-on template 
+with a version embracing modern development best practices.
 
 Supported Plone versions
 ----------------------------
 
 Supported Plone versions are 4.1 and above. 
 Dexterity pindowns are required, though there is 
-no dependency to ``plone.app.dexterity`` package,
-only ``five.grok``.
+no dependency on the ``plone.app.dexterity`` package,
+only on ``five.grok``.
 
 Goals
 -------
 
 * EASY
 
-* Well documented, follows best practices, cross-refers to up-to-date documentation
+* Well documented, follows best practices, references up-to-date documentation
 
-* Provides basic solution for basic theming and UI customizations needs with documented instructions
+* Provides a basic solution for basic theming and UI customizations needs with documented instructions
 
 * Minimum boilerplate: no unnecessary ZCML or folder structure, etc. Based on Grok and Dexterity frameworks
 
@@ -40,29 +40,33 @@ Goals
 
 * Good folder structure: flat is better than nested
 
-This is a barebone code drop and does not depend on, more or less,
-crappy Python templating solutions. There is no need for using code generators,
-as actions like adding a view are simple code copy-pastes following
-the sane defaults and Dont Repeat Yourself (DRY) principles.
+This is a barebone code drop and does not depend on any more or less
+crappy Python templating solutions.
+There is no need for using code generators,
+because actions like adding a view are simple code copy-pastes following
+the sane defaults and *Don't Repeat Yourself* (DRY) principles.
 
 Just clone it to your installation as ``src/youraddon``,
-make sure necessary buildout changes have been made, hack and go.
+make sure the necessary buildout changes have been made, hack and go.
 
 Benefits over through-the-web customizations
 ==============================================
 
 Old Zope 2 customization methods of using Zope Management Interface
 are seriously limited and rarely take you even half-way of your development
-needs. But ``youraddon`` template
+needs. But ``youraddon`` template:
 
-* Provides full power of Python. File system based editing, giving 100% full access to change everything vs. old ZMI based through-the-web overrides. Use real text editor instead of <textarea>.
+* Provides full power of Python.
+  File system based editing, giving 100% full access to change everything
+  vs. old ZMI based through-the-web overrides. Use real text editor instead
+  of <textarea>.
 
 * Your code can go properly under version control
 
 * Embraces modern development practices, like GitHub, jQuery and stuff
 
-* You can still have the speed of instant code changes using *sauna.reload* package
-  as described below
+* You can still have the speed of instant code changes using the
+  `sauna.reload`_ package as described below
 
 NO MORE THROUGH-THE-WEB PYTHON SCRIPTS, EVER, FOR ANYONE.
 DO NOT DO ADD NEW... SCRIPT (PYTHON), COMPRENDE? 
@@ -87,15 +91,16 @@ Prerequisites
 Usage
 -------
 
-**Follow these instructions carefully**. No warranty for users who did not read the instructios.
+**Follow these instructions carefully**.
+No warranty for users who did not read the instructios.
 
-Get the tempalte source code from GitHub and 
-to ``src/`` folder under your Plone installation folder::
+Get the template source code from GitHub and clone it 
+to the ``src/`` folder under your Plone installation folder::
 
 	cd src
 	git clone git@github.com:miohtama/sane_plone_addon_template.git youraddon
 
-`Add Dexterity extends line <http://plone.org/products/dexterity/documentation/how-to/install>`_ to your ``buildout.cfg``::
+Add `Dexterity extends line <http://plone.org/products/dexterity/documentation/how-to/install>`_ to your ``buildout.cfg``::
 
 	extends = 
 		...
@@ -105,7 +110,7 @@ to ``src/`` folder under your Plone installation folder::
 
 Note that this depends on Plone version. Fix to match to your version.
 
-Furthermore, add the following bits to ``buildout.cfg`` to install the code skeleton add-on::
+Add the following bits to ``buildout.cfg`` to install the code skeleton add-on::
 
 	develop = 
 		src/youraddon
@@ -114,23 +119,24 @@ Furthermore, add the following bits to ``buildout.cfg`` to install the code skel
 		...
 		youraddon
 
-Note: If you want to call Python package something else as ``youraddon`` you can
-change this by running ``personalize.py`` command later. Renaming is not necessary for
-the code skeleton to work and the instructions have been written in mind you do not
-rename the add-on in this point.
+.. Note:: If you want to call Python package something different than
+    ``youraddon`` you can change this by running the ``personalize.py``
+    command later.
+    Renaming is not necessary for the code skeleton to work and the
+    instructions have been written with the original name in mind.
 
 Then follow standard Plone add-on installation instructions
-of re-running buildout and activating the add-on
+of re-running buildout and activating the add-on:
 
 * http://plone.org/documentation/kb/installing-add-ons-quick-how-to
 
-After *youraddon* add-on is installed in Plone control panel you should
-see a pony greeting you on instead of the 
+After the *youraddon* add-on is installed in the Plone control panel you
+should see a pony greeting you instead of the 
 Plone site logo, showing that the code skeleton examples
 are active. 
 
 Now you can proceed to start adding your own code bits.
-See Tasks section below for recipes for most common Plone customization needs. 
+See the Tasks_ section below for recipes for most common Plone customization needs. 
 
 Bootstrapping the development of your own add-on
 --------------------------------------------------
@@ -138,15 +144,19 @@ Bootstrapping the development of your own add-on
 The default ``youraddon`` installation comes with some sample customizations highlighting the best pratices.
 These customizations are examples which are referred in documentation how to accomplish 
 certain development tasks with Plone.
-``youraddon`` installation is usable for tinkering as is
+``youraddon`` installation is usable for tinkering as is.
 
 However, you are supposed to remove these example customizations and rename the add-on 
 when you adapt the code skeleton for your own needs.
 
-You can do with ``personalize.py`` script. The script will remove all example view, viewlet, CSS and JS customizations by removing source code lines between ``EXAMPLES START`` and ``EXAMPLES END`` markers.
-The script will also give a new name for Python package.
+You can do this with the ``personalize.py`` script.
+The script will remove all example view, viewlet, CSS and JS examples by
+removing source code lines between ``EXAMPLES START`` and ``EXAMPLES END``
+markers.
+The script will also give a new name to the Python package.
 
-First uninstall ``youraddon`` add-on from your site if you installed it there.
+Before you run ``personalize.py``, 
+uninstall the ``youraddon`` add-on from your site if you installed it there.
 
 Then run personalize::
 
@@ -156,20 +166,21 @@ Then run personalize::
 	./personalize mycompanyaddon 
 
 Please note that the template discourages usage of namespaces.
-Namespaces are not needed for your own customizations and cause extra boilerplate;
-if you wish to use namespaces like *collective* or *plone.app* you can manually shuffle files and folders
-around later.
+Namespaces are not needed for your own customizations and cause extra boilerplate.
+If you wish to use namespaces like ``collective`` or ``plone.app`` you can
+manually shuffle files and folders around later.
 
 Now ``src/mycompanyaddon`` has been created. ``src/youraddon`` will be still around
 for further templating.
 
-You need to do respective name changes in ``buildout.cfg`` and re-run buildout.
-Then restart Plone, install add-on ``mycompanyaddon``.
+You need to do corresponding name changes in ``buildout.cfg`` and re-run buildout.
+Then restart Plone, and install the ``mycompanyaddon`` add-on.
 
-*personalize* will also clean up the add-on from orignal version control files.
+*personalize* will also remove the original version control files from the
+new add-on.
 
-Note that currently *personalize* is one time operation, not incremental, and you cannot
-update to more recent version of the code skeleton. 
+Note that currently *personalize* is a one-time operation, not incremental,
+and you cannot update to more recent version of the code skeleton. 
 
 Theme or add-on
 ------------------
@@ -178,16 +189,19 @@ The difference between Plone theme and Plone add-on is that
 only one theme can be active at a time. Resources like views,
 static media, etc. depend on whether the theme / add-on layer is active or not.
 
-* Theme layer becomes activated through portal_skins properties tab (*Default skin* option matches configure.zcml declaration)
+* The theme layer is activated through the ``portal_skins`` *properties* tab
+  (*Default skin* option matches ``configure.zcml`` declaration)
 
-* Add-on layer becomes activated when add-on is installed (activated via ``browserlayers.xml``)
+* Add-on layer is activated when add-on is *installed* (activated via
+  ``browserlayers.xml``)
 
 The code skeleton default behavior is add-on like.
-You can change it to theme-like by 
+You can change it to theme-like behavior by:
 
 * Uncommenting directives in ``profiles/defaul/skins.xml``.
 
-* Changing ``grok.layer()`` directives from ``IAddonSpecific`` to ``IThemeSpecific``
+* Changing ``grok.layer()`` directives from ``IAddonSpecific`` to
+  ``IThemeSpecific``.
 
 More info
 
@@ -196,49 +210,50 @@ More info
 Theory of add-on development
 ------------------------------
 
-You do not replace Plone functionality by directly messing Plone files.
-Instead you
+You do not replace Plone functionality by messing with Plone files directly.
+Instead you:
 
-* extend it to add new
+* extend Plone to add new functionality;
 
-* override it to customize out-of-the-box functionality
+* override Plone to customize out-of-the-box functionality.
 
 Overrides and extensions become effective when your add-on is installed
 and the effect disappears when your add-on is uninstalled.
 
 This way you keep your own customizations separate from Plone core.
-You do not never edit Plone core source code files directly.
-When Plone is updated, these files will be replaced with updated versions.
-This does hold true for all CMSes, not just Plone.
-Never edit anything under ``parts/`` or ``eggs/`` folders
+You do not ever edit Plone core source code files directly.
+If you do this, your edited files will be replaced by updated versions
+when Plone is updated.
+This holds true for all CMSes, not just for Plone.
+Never edit anything under the ``parts/`` or ``eggs/`` folders
 in your Plone installation.
 
-Plone has mechanism called layers telling which add-on / theme
-parts are effective once. Once your add-on is installed,
-its layer takes the highest priority in Plone installation,
+Plone has a mechanism called *layers*, specifying which add-on / theme
+parts are effective. Once your add-on is installed,
+its layer takes the highest priority in the Plone installation,
 overriding functionality with lower priority. 
 
 Layers are the central element of well-functioning 
 plug-in architecture, ensuring that add-ons don't
-step on each others toes resulting code conflicts.
+step on each others toes, resulting in code conflicts.
 
 Dive into
 -----------
 
-This source code provides Python package (a.k.a egg) ``youraddon``.
+This source code provides the Python package (a.k.a. *egg*) ``youraddon``.
 The package can be used as a Plone add-on to override Plone user interface functionality easily.
 
-The folder layout follows Python package layout where you have
+The folder layout follows Python package layout where you have:
 
-* Top level folder with ``setup.py`` package metadata
+* a top-level folder with ``setup.py`` package metadata;
 
-* ``youraddon`` Python module 
+* ``youraddon`` Python module;
 
-* ``static`` `Grok static folder <http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/resourcefolders.html#grok-static-media-folder>`_ for images, CSS and Javascript.
+* ``static`` `Grok static folder <http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/resourcefolders.html#grok-static-media-folder>`_ for images, CSS and Javascript;
 
-* ``views.py`` and ``viewlets.py`` for Plone user interface element declarations
+* ``views.py`` and ``viewlets.py`` for Plone user interface element declarations;
 
-* Standard ``configure.zcml`` Zope 3 boiler-plate - no need to touch here
+* standard ``configure.zcml`` Zope 3 boiler-plate - no need to touch here.
 
 Tasks
 ------
@@ -248,12 +263,13 @@ Here are quick pointers for common theming / Plone UI customization related deve
 Automatic Plone restarts
 ===========================
 
-Use `sauna.reload <http://pypi.python.org/pypi/sauna.reload>`_ on UNIX systems to reload your code automatically.
-This will considerably raise your working effectiveness.
+Use `sauna.reload`_ on UNIX systems to reload your code automatically.
+This will considerably increase your working effectiveness.
 
-When in development mode, even if not using *sauna.reload* Plone reloads following bits automatically
+When in development mode, even if not using ``sauna.reload``, Plone reloads
+the following bits automatically:
 
-* .pt page templates
+* ``.pt`` page templates
 
 * CSS
 
@@ -273,7 +289,8 @@ Add a view
 Views present functionality or content. Views can be associated with
 content types or site root.
 
-A HelloWorld view example is provided in ``views.py``. Feel free to copy-paste around.
+A *HelloWorld* view example is provided in ``views.py``.
+Feel free to copy-paste around.
 
 More info
 
@@ -282,11 +299,12 @@ More info
 Finding view source code to override
 =======================================
 
-Plone views can be
+Plone views can be:
 
-* View classes (new style): this come from Python packages
+* view classes (new style): these come from Python packages.
 
-* Pure page templates, no Python code attached (old style): these come from plone_skins tool
+* Pure page templates, no Python code attached (old style): these come from
+  the ``plone_skins`` tool
 
 More info
 
@@ -309,7 +327,7 @@ Override a view template
 ===========================
 
 Use ``z3c.jbot`` override by dropping a corresponding 
-template to ``templates`` folder.
+template in the ``templates`` folder.
 
 More info
 
@@ -329,7 +347,7 @@ Override an old style page template (skins overrides)
 ======================================================
 
 Use ``z3c.jbot`` override by dropping a corresponding 
-template to ``templates`` folder.
+template in the ``templates`` folder.
 
 More info
 
@@ -342,7 +360,7 @@ Add a viewlet
 
 An example provided in ``viewlets.py`` to adding a custom footer viewlet.
 
-More info
+More info:
 
 * http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
 
@@ -351,9 +369,9 @@ More info
 Override a viewlet template
 ====================================================== 
 
-z3c.jbot override example provided for the site logo in ``templates``.
+``z3c.jbot`` override example provided for the site logo in ``templates``.
 
-More info
+More info:
 
 * http://pypi.python.org/pypi/z3c.jbot
 
@@ -361,16 +379,15 @@ Override a viewlet
 ======================================================
 
 If you need to touch viewlet Python class code the easiest
-approach is to
+approach is to:
 
-* Copy-paste the orignal viewlet Python code as a whole
-
-* Copy-paste the orignal viewlet template code as a whole
+* copy-paste the orignal viewlet Python code as a whole;
+* copy-paste the orignal viewlet template code as a whole.
 
 Then register your own viewlet with the name of the original
 using ``grok.name()``.
 
-It's possible, though often suicidal, try to extend the orignal
+It's possible, though often suicidal, to try to extend the original
 viewlet and then override.
 
 More info
@@ -411,7 +428,7 @@ Add a new CSS styles and file
 
 Example provided in ``main.css``.
 
-More info
+More info:
 
 * http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html
 
@@ -450,7 +467,7 @@ More info
 Adding new language
 ===========================
 
-You can include new languages to the translation mix.
+You can include new languages in the translation mix.
 
 More info
 
@@ -470,11 +487,11 @@ All text editors: set save tabs as spaces, never use hard tabs.
 Dynamically generated files
 =============================
 
-*Never* import the following files to version control:
+*Never* add the following files to version control:
 
-* Various .egg-info folders (automatically generated when buildout runs)
+* Various ``.egg-info`` folders (automatically generated when buildout runs)
 
-* .mo files (compiled gettext files recreated on Plone start-up)
+* ``.mo`` files (compiled gettext files recreated on Plone start-up)
 
 JSLint
 ============
@@ -486,7 +503,7 @@ PEP8
 
 * TODO 
 
-PyFlaks
+PyFlakes
 ============
 
 * TODO
@@ -499,8 +516,9 @@ If you get this::
 	PicklingError: Can't pickle <class 'youraddon.interfaces.IAddonSpecific'>: import of module youraddon.interfaces failed 
 
 This means that you did not follow uninstall instructions carefully. 
-Re-add ``youraddon`` in ``buildout.cfg``, re-run buildout, then uninstall it in Plone control panel
-and then re-remove from ``builout.cfg``.	
+Re-add ``youraddon`` in ``buildout.cfg``, re-run buildout,
+then uninstall it in Plone control panel
+and then re-remove from ``buildout.cfg``.	
 
 Authors
 ---------
@@ -511,3 +529,5 @@ Authors
 
 * Pony by `Lili / novotnaci <http://openclipart.org/detail/102193/foal-by-novotnaci>`_
 
+
+.. _sauna.reload: http://pypi.python.org/pypi/sauna.reload
