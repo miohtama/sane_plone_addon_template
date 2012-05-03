@@ -160,10 +160,11 @@ uninstall the ``youraddon`` add-on from your site if you installed it there.
 
 Then run personalize::
 
-    cd src/youraddon
-    # Will create a copy src/mycompanyaddon out of youraddon
-    # with all examples removed
-    ./personalize mycompanyaddon 
+	cd src/youraddon
+	# Will create a copy src/mycompanyaddon out of youraddon
+	# with all examples removed
+	./personalize.py mycompanyaddon 
+
 
 Please note that the template discourages usage of namespaces.
 Namespaces are not needed for your own customizations and cause extra boilerplate.
