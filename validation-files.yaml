@@ -1,0 +1,6 @@
+# https://github.com/miohtama/vvv
+all: |
+    *
+    !RE:.*\/\..*|^\..*
+    !samitheme/static/opensans
+    !./*.html

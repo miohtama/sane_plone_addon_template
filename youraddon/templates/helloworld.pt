@@ -5,16 +5,16 @@
       metal:use-macro="context/main_template/macros/master">
 <body>
 
-	<metal:title fill-slot="content-title">
-		<h1 class="documentFirstHeading">Hello World</h1>
-	</metal:title>
+        <metal:title fill-slot="content-title">
+                <h1 class="documentFirstHeading">Hello World</h1>
+        </metal:title>
 
-	<metal:main fill-slot="content-core">
-	  <p>
-	  	Greeting from Finland. 
-	    Please visit at <a href="http://opensourcehacker.com">my blog</a>
-	  </p> 
-	</metal:main>
+        <metal:main fill-slot="content-core">
+          <p>
+                Greeting from Finland. 
+            Please visit at <a href="http://opensourcehacker.com">my blog</a>
+          </p> 
+        </metal:main>
 
 </body>
 </html>

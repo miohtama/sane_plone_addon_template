@@ -97,27 +97,27 @@ No warranty for users who did not read the instructios.
 Get the template source code from GitHub and clone it 
 to the ``src/`` folder under your Plone installation folder::
 
-	cd src
-	git clone git@github.com:miohtama/sane_plone_addon_template.git youraddon
+    cd src
+    git clone git@github.com:miohtama/sane_plone_addon_template.git youraddon
 
 Add `Dexterity extends line <http://plone.org/products/dexterity/documentation/how-to/install>`_ to your ``buildout.cfg``::
 
-	extends = 
-		...
-		some lines here
-		...
-		http://good-py.appspot.com/release/dexterity/1.2?plone=4.1.4
+    extends = 
+        ...
+        some lines here
+        ...
+        http://good-py.appspot.com/release/dexterity/1.2?plone=4.1.4
 
 Note that this depends on Plone version. Fix to match to your version.
 
 Add the following bits to ``buildout.cfg`` to install the code skeleton add-on::
 
-	develop = 
-		src/youraddon
+    develop = 
+        src/youraddon
 
-	eggs =
-		...
-		youraddon
+    eggs =
+        ...
+        youraddon
 
 .. Note:: If you want to call Python package something different than
     ``youraddon`` you can change this by running the ``personalize.py``
@@ -160,10 +160,10 @@ uninstall the ``youraddon`` add-on from your site if you installed it there.
 
 Then run personalize::
 
-	cd src/youraddon
-	# Will create a copy src/mycompanyaddon out of youraddon
-	# with all examples removed
-	./personalize mycompanyaddon 
+    cd src/youraddon
+    # Will create a copy src/mycompanyaddon out of youraddon
+    # with all examples removed
+    ./personalize mycompanyaddon 
 
 Please note that the template discourages usage of namespaces.
 Namespaces are not needed for your own customizations and cause extra boilerplate.
@@ -513,12 +513,12 @@ Troubleshooting
 
 If you get this::
 
-	PicklingError: Can't pickle <class 'youraddon.interfaces.IAddonSpecific'>: import of module youraddon.interfaces failed 
+    PicklingError: Can't pickle <class 'youraddon.interfaces.IAddonSpecific'>: import of module youraddon.interfaces failed 
 
 This means that you did not follow uninstall instructions carefully. 
 Re-add ``youraddon`` in ``buildout.cfg``, re-run buildout,
 then uninstall it in Plone control panel
-and then re-remove from ``buildout.cfg``.	
+and then re-remove from ``buildout.cfg``.   
 
 Authors
 ---------

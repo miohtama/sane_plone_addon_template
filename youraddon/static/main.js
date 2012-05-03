@@ -19,15 +19,15 @@
 
      $(document).ready(function() {
 
-     	// Page has been loaded, put your custom JS logic here
+        // Page has been loaded, put your custom JS logic here
 
-     	// EXAMPLES START
-     	// Example how to manipulate my-custom-footer viewlet
-     	// and install a click handler via jQuery
-     	$(".my-footer-viewlet").click(function() {
-     		window.alert("Greetings from Finland");
-     	});
-     	// EXAMPLES END
+        // EXAMPLES START
+        // Example how to manipulate my-custom-footer viewlet
+        // and install a click handler via jQuery
+        $(".my-footer-viewlet").click(function() {
+                window.alert("Greetings from Finland");
+        });
+        // EXAMPLES END
      });
 
 })(jQuery);

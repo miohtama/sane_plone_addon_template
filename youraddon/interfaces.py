@@ -1,8 +1,8 @@
 """
 
-	For more information see
+        For more information see
 
-	* http://collective-docs.readthedocs.org/en/latest/components/interfaces.html
+        * http://collective-docs.readthedocs.org/en/latest/components/interfaces.html
 
     * http://collective-docs.readthedocs.org/en/latest/views/layers.html
 

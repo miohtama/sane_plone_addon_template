@@ -1,0 +1,9 @@
+# https://github.com/miohtama/vvv
+pylint:
+  enabled: false
+
+jshint:
+  enabled: false
+
+linelength:
+  length: 250

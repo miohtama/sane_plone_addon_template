@@ -1,10 +1,10 @@
 <!-- 
 
-	Original code here:
+        Original code here:
 
-	https://github.com/plone/plone.app.layout/blob/master/plone/app/layout/viewlets/logo.pt
+        https://github.com/plone/plone.app.layout/blob/master/plone/app/layout/viewlets/logo.pt
 
-	This override becomes effective via z3c.jbot
+        This override becomes effective via z3c.jbot
 
 -->
 
