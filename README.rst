@@ -163,7 +163,7 @@ Then run personalize::
 	cd src/youraddon
 	# Will create a copy src/mycompanyaddon out of youraddon
 	# with all examples removed
-	./personalize mycompanyaddon 
+	./personalize.py mycompanyaddon 
 
 Please note that the template discourages usage of namespaces.
 Namespaces are not needed for your own customizations and cause extra boilerplate.
