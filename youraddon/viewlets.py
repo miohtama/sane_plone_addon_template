@@ -1,8 +1,8 @@
 """
 
-        For more information see
+    For more information see
 
-        * http://collective-docs.readthedocs.org/en/latest/views/viewlets.html  
+    * http://collective-docs.readthedocs.org/en/latest/views/viewlets.html  
 
 """
 
@@ -15,7 +15,7 @@ from five import grok
 from plone.app.layout.viewlets.interfaces import IPortalFooter
 
 # Local imports
-from interfaces import IAddonSpecific, IThemeSpecific
+from interfaces import IAddonSpecific
 
 grok.templatedir("templates")
 grok.layer(IAddonSpecific)
@@ -28,25 +28,25 @@ grok.context(Interface)
 
 # EXAMPLES START
 class MyFooter(grok.Viewlet):
+    """
+    An example viewlet.
+    """
+
+    # For available viewlet managers see
+    # https://github.com/plone/plone.app.layout/blob/master/plone/app/layout/viewlets/configure.zcml
+    grok.viewletmanager(IPortalFooter)
+
+    def update(self):
         """
-        An example viewlet.
+        Set member variables before rendering the template.
+
+        These variables are exposed via ``viewlet/`` traversing in page template code.
         """
 
-        # For available viewlet managers see
-        # https://github.com/plone/plone.app.layout/blob/master/plone/app/layout/viewlets/configure.zcml
-        grok.viewletmanager(IPortalFooter)
-
-        def update(self):
-                """
-                Set member variables before rendering the template.
-
-                These variables are exposed via ``viewlet/`` traversing in page template code.
-                """
-
-                # See 
-                # http://collective-docs.readthedocs.org/en/latest/misc/context.html
-                # how to acquire various helper utilities related to self.context
-                self.portal_state = getMultiAdapter((self.context, self.request), name="plone_portal_state")
-                self.context_state = getMultiAdapter((self.context, self.request), name="plone_context_state")
+        # See 
+        # http://collective-docs.readthedocs.org/en/latest/misc/context.html
+        # how to acquire various helper utilities related to self.context
+        self.portal_state = getMultiAdapter((self.context, self.request), name="plone_portal_state")
+        self.context_state = getMultiAdapter((self.context, self.request), name="plone_context_state")
 
 # EXAMPLES END

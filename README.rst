@@ -160,10 +160,10 @@ uninstall the ``youraddon`` add-on from your site if you installed it there.
 
 Then run personalize::
 
-	cd src/youraddon
-	# Will create a copy src/mycompanyaddon out of youraddon
-	# with all examples removed
-	./personalize.py mycompanyaddon 
+  cd src/youraddon
+  # Will create a copy src/mycompanyaddon out of youraddon
+  # with all examples removed
+  ./personalize.py mycompanyaddon 
 
 
 Please note that the template discourages usage of namespaces.
@@ -283,6 +283,22 @@ The following code is not reloaded:
 * Python
 
 * ZCML
+
+Validating source files
+============================
+
+`VVV <http://pypi.python.org/pypi/vvv>`_ is used to provide validation support for
+
+* CSS
+
+* Javascript 
+
+* Python 
+
+* Restructured text files
+
+Please consult *VVV* documentation how to install pre-commit hooks which
+prevent you to accidentally committing files containing validation or linting errors.
 
 Add a view
 ============

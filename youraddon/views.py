@@ -1,12 +1,18 @@
 """
 
-        Plone views overrides.
+    Plone views overrides.
 
-        For more information see
+    For more information see
 
-        * http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
+    * http://collective-docs.readthedocs.org/en/latest/views/browserviews.html
 
 """
+
+# Disable unused imports pylint warning as they are here 
+# here for example purposes
+# W0611: 12,0: Unused import Interface
+
+# pylint: disable=W0611
 
 # Zope imports
 from zope.interface import Interface
@@ -17,22 +23,22 @@ from Products.CMFCore.interfaces import ISiteRoot
 from interfaces import IAddonSpecific, IThemeSpecific
 
 grok.templatedir("templates")
-grok.layer(IThemeSpecific)
+grok.layer(IAddonSpecific)
 
 # EXAMPLES START
 
 class HelloWorld(grok.View):
-        """
-        Example view rendering a Plone page in the default Plone framing.
-        
-        Automatically associates itself with ``helloworld.pt`` templates.
-        Make this view available only in Plone site root.
+    """
+    Example view rendering a Plone page in the default Plone framing.
 
-        http://localhost:8080/Plone/@@helloworld
-        """
+    Automatically associates itself with ``helloworld.pt`` templates.
+    Make this view available only in Plone site root.
+
+    http://localhost:8080/Plone/@@helloworld
+    """
 
 
-        # use grok.context(Interface) to associate view with every content item
-        grok.context(ISiteRoot)
+    # use grok.context(Interface) to associate view with every content item
+    grok.context(ISiteRoot)
 
 # EXAMPLES END

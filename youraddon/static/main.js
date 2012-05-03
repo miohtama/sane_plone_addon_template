@@ -10,7 +10,7 @@
  *
  */
 
- /*global window*/
+ /*global window,document*/
 
 (function($) {
      

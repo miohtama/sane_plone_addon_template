@@ -1,8 +1,8 @@
 """
 
-        For more information see
+    For more information see
 
-        * http://collective-docs.readthedocs.org/en/latest/components/interfaces.html
+    * http://collective-docs.readthedocs.org/en/latest/components/interfaces.html
 
     * http://collective-docs.readthedocs.org/en/latest/views/layers.html
 
@@ -19,7 +19,7 @@ class IThemeSpecific(IDefaultPloneLayer):
     override default Plone render actions.
     """
 
-class IAddonSpecific(IDefaultPloneLayer):    
+class IAddonSpecific(Interface):    
     """
     Marker interface that defines a browser layer against which you can register views and viewlets.
 

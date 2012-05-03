@@ -19,11 +19,11 @@ import shutil
 import os
 import fnmatch
 
-TEMPLATE_NAME="youraddon"
+TEMPLATE_NAME = "youraddon"
 
-IGNORE_MASKS=["*.pyc", "*.pyo", "*.git*", "*.egg*", "*.EGG*"]
+IGNORE_MASKS = ["*.pyc", "*.pyo", "*.git*", "*.egg*", "*.EGG*"]
 
-FILES_TO_DELETE=[
+FILES_TO_DELETE = [
     ".git", 
     "README.rst", 
     "youraddon.egg-info", 
@@ -74,12 +74,17 @@ def process(fname, newname):
         f.write(data)
         f.close()
 
-    path, file = os.path.split(fname)
 
-    if file == TEMPLATE_NAME:
+    # pylint: disable=
+
+    path, filepart = os.path.split(fname)
+
+    if filepart == TEMPLATE_NAME:
         # Rename youraddon folders to something else
         newname = os.path.join(path, newname)
         shutil.move(fname, newname)
+
+# pylint: disable=W0613
 
 def post_cleanup(target, newname):
     """
