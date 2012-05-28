@@ -24,12 +24,13 @@ TEMPLATE_NAME = "youraddon"
 IGNORE_MASKS = ["*.pyc", "*.pyo", "*.git*", "*.egg*", "*.EGG*"]
 
 FILES_TO_DELETE = [
-    ".git", 
-    "README.rst", 
-    "youraddon.egg-info", 
+    ".git",
+    "README.rst",
+    "youraddon.egg-info",
     "youraddon/templates/helloworld.pt",
     "youraddon/templates/myfooter.pt",
     "youraddon/templates/plone.app.layout.viewlets.logo.pt",
+    "youraddon/static/pony.png"
 ]
 
 def process(fname, newname):
@@ -60,7 +61,7 @@ def process(fname, newname):
         for line in data.split("\n"):
             if "EXAMPLES START" in line:
                 filtering = True
-            
+
             if not filtering:
                 new_lines.append(line)
 
@@ -70,7 +71,7 @@ def process(fname, newname):
         # Write the output
         data = "\n".join(new_lines)
 
-        f = open(fname, "wt")       
+        f = open(fname, "wt")
         f.write(data)
         f.close()
 
@@ -98,7 +99,7 @@ def post_cleanup(target, newname):
                 shutil.rmtree(fname)
             else:
                 os.remove(fname)
-                
+
 def fancy_replace(newname):
     """ """
 
@@ -120,7 +121,7 @@ def fancy_replace(newname):
         for name in files:
             fname = os.path.join(root, name)
             process(fname, newname)
-    
+
         for name in dirs:
             fname = os.path.join(root, name)
             process(fname, newname)

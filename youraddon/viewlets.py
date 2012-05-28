@@ -2,7 +2,7 @@
 
     For more information see
 
-    * http://collective-docs.readthedocs.org/en/latest/views/viewlets.html  
+    * http://collective-docs.readthedocs.org/en/latest/views/viewlets.html
 
 """
 
@@ -23,10 +23,12 @@ grok.layer(IAddonSpecific)
 # By default, set context to zope.interface.Interface
 # which matches all the content items.
 # You can register viewlets to be content item type specific
-# by overriding grok.context() on class body level 
+# by overriding grok.context() on class body level
 grok.context(Interface)
 
 # EXAMPLES START
+
+
 class MyFooter(grok.Viewlet):
     """
     An example viewlet.
@@ -43,7 +45,7 @@ class MyFooter(grok.Viewlet):
         These variables are exposed via ``viewlet/`` traversing in page template code.
         """
 
-        # See 
+        # See
         # http://collective-docs.readthedocs.org/en/latest/misc/context.html
         # how to acquire various helper utilities related to self.context
         self.portal_state = getMultiAdapter((self.context, self.request), name="plone_portal_state")
