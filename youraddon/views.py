@@ -8,7 +8,7 @@
 
 """
 
-# Disable unused imports pylint warning as they are here 
+# Disable unused imports pylint warning as they are here
 # here for example purposes
 # W0611: 12,0: Unused import Interface
 
